@@ -1,0 +1,20 @@
+16:24:41 **** Incremental Build of configuration Debug for project ADC10 ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc -o "ADC10.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Kubilay\Desktop\ADC10\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC10.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC10.elf
+ 
+arm-none-eabi-objdump -h -S  ADC10.elf  > "ADC10.list"
+arm-none-eabi-objcopy  -O binary  ADC10.elf  "ADC10.bin"
+arm-none-eabi-size   ADC10.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27872	    492	   8020	  36384	   8e20	ADC10.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC10.bin
+ 
+Finished building: ADC10.list
+ 
+
+16:24:45 Build Finished. 0 errors, 0 warnings. (took 4s.263ms)
+

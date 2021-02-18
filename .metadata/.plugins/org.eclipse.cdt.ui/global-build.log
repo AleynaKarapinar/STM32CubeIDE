@@ -1,31 +1,46 @@
-21:13:51 **** Incremental Build of configuration Debug for project adc ****
+17:18:27 **** Incremental Build of configuration Debug for project usbled ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "adc.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Kubilay\STM32CubeIDE\workspace_1.5.1\adc\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="adc.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: adc.elf
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+../USB_DEVICE/App/usbd_cdc_if.c: In function 'CDC_Receive_FS':
+../USB_DEVICE/App/usbd_cdc_if.c:301:30: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
+             CDC_Transmit_FS (data, strlen(data));
+                              ^~~~
+In file included from ../USB_DEVICE/App/usbd_cdc_if.c:51:0:
+../USB_DEVICE/App/usbd_cdc_if.h:110:9: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
+         ^~~~~~~~~~~~~~~
+../USB_DEVICE/App/usbd_cdc_if.c:306:30: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
+             CDC_Transmit_FS (data1, strlen(data1));
+                              ^~~~~
+In file included from ../USB_DEVICE/App/usbd_cdc_if.c:51:0:
+../USB_DEVICE/App/usbd_cdc_if.h:110:9: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
+         ^~~~~~~~~~~~~~~
+../USB_DEVICE/App/usbd_cdc_if.c:311:35: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
+                  CDC_Transmit_FS (data2, strlen(data2));
+                                   ^~~~~
+In file included from ../USB_DEVICE/App/usbd_cdc_if.c:51:0:
+../USB_DEVICE/App/usbd_cdc_if.h:110:9: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
+         ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "usbled.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Kubilay\STM32CubeIDE\workspace_1.5.1\usbled\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="usbled.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: usbled.elf
  
-arm-none-eabi-objdump -h -S  adc.elf  > "adc.list"
-arm-none-eabi-objcopy  -O binary  adc.elf  "adc.bin"
-arm-none-eabi-size   adc.elf 
+arm-none-eabi-objdump -h -S  usbled.elf  > "usbled.list"
+arm-none-eabi-objcopy  -O binary  usbled.elf  "usbled.bin"
+arm-none-eabi-size   usbled.elf 
    text	   data	    bss	    dec	    hex	filename
-   7972	     20	   1644	   9636	   25a4	adc.elf
+  26288	    492	   7948	  34728	   87a8	usbled.elf
 Finished building: default.size.stdout
  
-Finished building: adc.bin
+Finished building: usbled.bin
  
-Finished building: adc.list
+Finished building: usbled.list
  
-21:15:05 **** Incremental Build of configuration Debug for project adc ****
+17:18:30 **** Incremental Build of configuration Debug for project usbled ****
 make -j8 all 
-arm-none-eabi-size   adc.elf 
+arm-none-eabi-size   usbled.elf 
    text	   data	    bss	    dec	    hex	filename
-   7972	     20	   1644	   9636	   25a4	adc.elf
-Finished building: default.size.stdout
- 
-21:15:16 **** Incremental Build of configuration Debug for project adc ****
-make -j8 all 
-arm-none-eabi-size   adc.elf 
-   text	   data	    bss	    dec	    hex	filename
-   7972	     20	   1644	   9636	   25a4	adc.elf
+  26288	    492	   7948	  34728	   87a8	usbled.elf
 Finished building: default.size.stdout
  
