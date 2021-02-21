@@ -314,13 +314,13 @@ static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
   		default:
   			for(int32_t i=0; i<1000000; i++)
   			{
-  				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12 |
-  										 GPIO_PIN_13 |
+  				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0 |
+  										 GPIO_PIN_7 |
   									     GPIO_PIN_14 , GPIO_PIN_SET);
 
-
-  				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12 |
-  				     					 GPIO_PIN_13 |
+HAL_Delay(250);
+  				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0 |
+  				     					 GPIO_PIN_7 |
   					    				 GPIO_PIN_14 , GPIO_PIN_RESET);
   			}
   			break;
